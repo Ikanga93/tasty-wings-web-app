@@ -373,20 +373,36 @@
 
 @media (max-width: 480px) {
   .cart-item {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--spacing-sm);
     padding: var(--spacing-md) var(--spacing-md);
+    position: relative;
   }
   
   .item-image {
-    width: 100%;
-    height: 100px;
-    align-self: center;
-    max-width: 150px;
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
   }
   
   .item-details {
+    width: calc(100% - 85px);
+    padding-right: 30px; /* Make space for remove button */
+  }
+  
+  .item-name {
+    font-size: var(--font-size-sm);
+    margin-bottom: 4px;
+    display: block;
     width: 100%;
+    white-space: normal;
+    overflow: visible;
+  }
+  
+  .item-price {
+    font-weight: 500;
+    margin-bottom: 4px;
   }
   
   .item-actions {
@@ -397,8 +413,29 @@
     margin-top: var(--spacing-sm);
   }
   
+  .remove-btn {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    background-color: #000;
+    color: white;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .quantity-controls {
     margin-top: 0;
+    margin-right: auto;
+  }
+  
+  .item-total {
+    font-weight: 600;
+    margin-left: auto;
   }
   
   .cart-summary {
